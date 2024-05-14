@@ -1,0 +1,6 @@
+echo "\begin{figure}"
+echo "\centering"
+echo "\includegraphics[trim={0cm 0cm 0cm 0cm},clip,width=1\columnwidth]{$1}"
+echo "\caption{}"
+echo "\label{figure:$1}"
+echo "\end{figure}"
