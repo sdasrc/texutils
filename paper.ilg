@@ -1,0 +1,61 @@
+This is makeindex, version 2.17 [TeX Live 2024] (kpathsea + Thai support).
+Scanning input file paper.aux...
+!! Input index error (file = paper.aux, line = 1):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = paper.aux, line = 2):
+   -- Unknown index keyword \providecommand\hyper@newdestlabel[2].
+!! Input index error (file = paper.aux, line = 3):
+   -- Unknown index keyword \providecommand\HyField@AuxAddToFields[1].
+!! Input index error (file = paper.aux, line = 4):
+   -- Unknown index keyword \providecommand\HyField@AuxAddToCoFields[2].
+!! Input index error (file = paper.aux, line = 5):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 6):
+   -- Unknown index keyword \providecommand*\caption@xref[2].
+!! Input index error (file = paper.aux, line = 7):
+   -- Unknown index keyword \newlabel.
+!! Input index error (file = paper.aux, line = 8):
+   -- Unknown index keyword \newlabel.
+!! Input index error (file = paper.aux, line = 9):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 10):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 11):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 12):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 13):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 14):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 15):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 16):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 17):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 18):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 19):
+   -- Unknown index keyword \bibstyle.
+!! Input index error (file = paper.aux, line = 20):
+   -- Unknown index keyword \bibdata.
+!! Input index error (file = paper.aux, line = 21):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 22):
+   -- Unknown index keyword \newlabel.
+!! Input index error (file = paper.aux, line = 23):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 24):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 25):
+   -- Unknown index keyword \newlabel.
+!! Input index error (file = paper.aux, line = 26):
+   -- Unknown index keyword \@writefile.
+!! Input index error (file = paper.aux, line = 27):
+   -- Unknown index keyword \newlabel.
+!! Input index error (file = paper.aux, line = 28):
+   -- Unknown index keyword \gdef\@abspage@last.
+done (0 entries accepted, 28 rejected).
+Nothing written in paper.ind.
+Transcript written in paper.ilg.
