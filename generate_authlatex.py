@@ -49,7 +49,7 @@ instfile = workdir+'instlist.tex'
 ackfile = workdir+'acklist.tex'
 authemail = 'soumyadeep.das.m44@gmail.com'
 linelim = 112 # how many characters can be in one line before it goes to a new line
-doseparate = True
+doseparate = False
 doinitials = False
 # needed only if we do separate sections
 extraStr = "\\textit{Affiliations are listed in Appendix \\ref{sec:affiliations}}." 
@@ -149,13 +149,17 @@ print("Include the following in your tex :: \\input{"+authfile.split('/')[-1]+"}
         
 # ==================================== #
 #       H A N D L E  A C K N O W S     #
-# ==================================== #        
+# ==================================== #    
+ackStr_static_pre = ""
+ackStr_static_post = ""    
 ackStr = ""
 for aa in acknos:
     if len(aa) > 1:
         aa = " ".join(aa.split())
         if aa[-1] != '.': aa = aa+'.'
         ackStr = ackStr+" "+aa
+
+ackStr = ackStr_static_pre.rstrip()+" "+ackStr+" "+ackStr_static_post.lstrip()
 
 with open(ackfile,"w") as f:
     print(ackStr,file=f)
