@@ -108,9 +108,37 @@ if [ $mycase -eq 1 ] ; then
 elif [ $mycase -eq 2 ] ; then
     pdflatex $filename.tex
 elif [ $mycase -eq 3 ] ; then
-    xelatex $filename.tex
+    # xelatex $filename.tex
+    xelatex -interaction=nonstopmode $filename.tex
+    bibtex $filename.aux    
+    makeindex $filename.aux
+    makeindex $filename.idx
+    makeindex $filename.nlo -s nomencl.ist -o $filename.nls
+    xelatex -interaction=nonstopmode $filename.tex
+    makeindex $filename.nlo -s nomencl.ist -o $filename.nls
+    xelatex -interaction=nonstopmode $filename.tex
+    echo " ------ "
+    echo ""
+    echo "Total citations in this paper : "
+    grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o
+    echo "Word count : "
+    texcount $filename.tex -inc -incbib -sum -1
 elif [ $mycase -eq 4 ] ; then
-    lualatex $filename.tex
+    # lualatex $filename.tex
+    lualatex -interaction=nonstopmode $filename.tex
+    bibtex $filename.aux    
+    makeindex $filename.aux
+    makeindex $filename.idx
+    makeindex $filename.nlo -s nomencl.ist -o $filename.nls
+    lualatex -interaction=nonstopmode $filename.tex
+    makeindex $filename.nlo -s nomencl.ist -o $filename.nls
+    lualatex -interaction=nonstopmode $filename.tex
+    echo " ------ "
+    echo ""
+    echo "Total citations in this paper : "
+    grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o
+    echo "Word count : "
+    texcount $filename.tex -inc -incbib -sum -1
 elif [ $mycase -eq 5 ] ; then
     echo "Do you want to clear 'converted-to.pdf's? [Y = 1, N = 0] : "
     read CLRCONV
