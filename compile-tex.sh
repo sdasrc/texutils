@@ -64,6 +64,7 @@ else
     echo "Welcome to Runtex!"
     filename=${filename%.tex}        
     echo "File is $(pwd)/$filename.tex"
+    mkdir -p "$(pwd)/.statsfornerds"
     echo ""
     echo "Cleaning please wait ..."
     rm -f *~
@@ -90,6 +91,8 @@ else
     echo "Compiling your tex file...please wait...!"
 fi
 
+thistime=$(date +%s)
+
 if [ $mycase -eq 1 ] ; then
     pdflatex -interaction=nonstopmode $filename.tex
     bibtex $filename.aux    
@@ -101,10 +104,11 @@ if [ $mycase -eq 1 ] ; then
     pdflatex -interaction=nonstopmode $filename.tex
     echo " ------ "
     echo ""
-    echo "Total citations in this paper : "
-    grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o
-    echo "Word count : "
-    texcount $filename.tex -inc -incbib -sum -1
+    citcount=$(grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o)
+    wordcount=$(texcount $filename.tex -inc -incbib -sum -1)
+    echo "Word count : $wordcount, citations : $citcount"
+    echo "$thistime    $wordcount" >> "$(pwd)/.statsfornerds/wordcount.dat"
+    echo "$thistime    $citcount" >> "$(pwd)/.statsfornerds/citcount.dat"
 elif [ $mycase -eq 2 ] ; then
     pdflatex $filename.tex
 elif [ $mycase -eq 3 ] ; then
@@ -119,10 +123,11 @@ elif [ $mycase -eq 3 ] ; then
     xelatex -interaction=nonstopmode $filename.tex
     echo " ------ "
     echo ""
-    echo "Total citations in this paper : "
-    grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o
-    echo "Word count : "
-    texcount $filename.tex -inc -incbib -sum -1
+    citcount=$(grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o)
+    wordcount=$(texcount $filename.tex -inc -incbib -sum -1)
+    echo "Word count : $wordcount, citations : $citcount"
+    echo "$thistime    $wordcount" >> "$(pwd)/.statsfornerds/wordcount.dat"
+    echo "$thistime    $citcount" >> "$(pwd)/.statsfornerds/citcount.dat"
 elif [ $mycase -eq 4 ] ; then
     # lualatex $filename.tex
     lualatex -interaction=nonstopmode $filename.tex
@@ -135,10 +140,11 @@ elif [ $mycase -eq 4 ] ; then
     lualatex -interaction=nonstopmode $filename.tex
     echo " ------ "
     echo ""
-    echo "Total citations in this paper : "
-    grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o
-    echo "Word count : "
-    texcount $filename.tex -inc -incbib -sum -1
+    citcount=$(grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o)
+    wordcount=$(texcount $filename.tex -inc -incbib -sum -1)
+    echo "Word count : $wordcount, citations : $citcount"
+    echo "$thistime    $wordcount" >> "$(pwd)/.statsfornerds/wordcount.dat"
+    echo "$thistime    $citcount" >> "$(pwd)/.statsfornerds/citcount.dat"
 elif [ $mycase -eq 5 ] ; then
     echo "Do you want to clear 'converted-to.pdf's? [Y = 1, N = 0] : "
     read CLRCONV
