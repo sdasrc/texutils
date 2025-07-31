@@ -106,10 +106,13 @@ if [ $mycase -eq 1 ] ; then
     echo ""
     bibwarncount=$(grep "Warning--missing publisher in" "$filename.blg" | wc -l)
     biberrcount=$(grep "Warning--I didn't find a database entry for" "$filename.blg" | wc -l)
+    bibrepcount=$(grep "Repeated entry--" "$filename.blg" | wc -l)
     echo "============================================="
-    echo "I found $biberrcount errors and $bibwarncount warnings in your bibs:"
+    echo "I found $biberrcount errors, $bibrepcount repetations, and $bibwarncount warnings in your bibs:"
     echo ""
     grep "Warning--I didn't find a database entry for" "$filename.blg"
+    echo ""
+    grep "Repeated entry" "$filename.blg" -A 2
     echo ""
     grep "Warning--missing publisher in" "$filename.blg"
     echo ""
@@ -135,10 +138,13 @@ elif [ $mycase -eq 3 ] ; then
     
     bibwarncount=$(grep "Warning--missing publisher in" "$filename.blg" | wc -l)
     biberrcount=$(grep "Warning--I didn't find a database entry for" "$filename.blg" | wc -l)
+    bibrepcount=$(grep "Repeated entry--" "$filename.blg" | wc -l)
     echo "============================================="
-    echo "I found $biberrcount errors and $bibwarncount warnings in your bibs:"
+    echo "I found $biberrcount errors, $bibrepcount repetations, and $bibwarncount warnings in your bibs:"
     echo ""
     grep "Warning--I didn't find a database entry for" "$filename.blg"
+    echo ""
+    grep "Repeated entry" "$filename.blg" -A 2
     echo ""
     grep "Warning--missing publisher in" "$filename.blg"
     echo ""
@@ -161,10 +167,13 @@ elif [ $mycase -eq 4 ] ; then
     echo ""
     bibwarncount=$(grep "Warning--missing publisher in" "$filename.blg" | wc -l)
     biberrcount=$(grep "Warning--I didn't find a database entry for" "$filename.blg" | wc -l)
+    bibrepcount=$(grep "Repeated entry--" "$filename.blg" | wc -l)
     echo "============================================="
-    echo "I found $biberrcount errors and $bibwarncount warnings in your bibs:"
+    echo "I found $biberrcount errors, $bibrepcount repetations, and $bibwarncount warnings in your bibs:"
     echo ""
     grep "Warning--I didn't find a database entry for" "$filename.blg"
+    echo ""
+    grep "Repeated entry" "$filename.blg" -A 2
     echo ""
     grep "Warning--missing publisher in" "$filename.blg"
     echo ""
