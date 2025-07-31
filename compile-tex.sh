@@ -104,6 +104,15 @@ if [ $mycase -eq 1 ] ; then
     pdflatex -interaction=nonstopmode $filename.tex
     echo " ------ "
     echo ""
+    bibwarncount=$(grep "Warning--missing publisher in" "$filename.blg" | wc -l)
+    biberrcount=$(grep "Warning--I didn't find a database entry for" "$filename.blg" | wc -l)
+    echo "============================================="
+    echo "I found $biberrcount errors and $bibwarncount warnings in your bibs:"
+    echo ""
+    grep "Warning--missing publisher in" "$filename.blg"
+    echo ""
+    grep "Warning--missing publisher in" "$filename.blg"
+    echo ""
     citcount=$(grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o)
     wordcount=$(texcount $filename.tex -inc -incbib -sum -1)
     echo "Word count : $wordcount, citations : $citcount"
@@ -123,6 +132,16 @@ elif [ $mycase -eq 3 ] ; then
     xelatex -interaction=nonstopmode $filename.tex
     echo " ------ "
     echo ""
+    
+    bibwarncount=$(grep "Warning--missing publisher in" "$filename.blg" | wc -l)
+    biberrcount=$(grep "Warning--I didn't find a database entry for" "$filename.blg" | wc -l)
+    echo "============================================="
+    echo "I found $biberrcount errors and $bibwarncount warnings in your bibs:"
+    echo ""
+    grep "Warning--missing publisher in" "$filename.blg"
+    echo ""
+    grep "Warning--missing publisher in" "$filename.blg"
+    echo ""
     citcount=$(grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o)
     wordcount=$(texcount $filename.tex -inc -incbib -sum -1)
     echo "Word count : $wordcount, citations : $citcount"
@@ -139,6 +158,15 @@ elif [ $mycase -eq 4 ] ; then
     makeindex $filename.nlo -s nomencl.ist -o $filename.nls
     lualatex -interaction=nonstopmode $filename.tex
     echo " ------ "
+    echo ""
+    bibwarncount=$(grep "Warning--missing publisher in" "$filename.blg" | wc -l)
+    biberrcount=$(grep "Warning--I didn't find a database entry for" "$filename.blg" | wc -l)
+    echo "============================================="
+    echo "I found $biberrcount errors and $bibwarncount warnings in your bibs:"
+    echo ""
+    grep "Warning--missing publisher in" "$filename.blg"
+    echo ""
+    grep "Warning--missing publisher in" "$filename.blg"
     echo ""
     citcount=$(grep -P "You've used [0-9]+ entries," -m 1 "$filename.blg" | grep -P "[0-9]+" -o)
     wordcount=$(texcount $filename.tex -inc -incbib -sum -1)
