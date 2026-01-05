@@ -3,6 +3,10 @@
 # WRITTEN BY SOUMYADEEP DAS
 # -------------------------------------------
 # No Arguments given
+
+scriptdir="/home/overlord/git/texutils/";
+echo $scriptdir;
+
 if [[ -z "$1" ]] ; then  
     echo "Welcome to runtex, cli script for running tex files."
     mycase=99
@@ -93,8 +97,19 @@ fi
 
 thistime=$(date +%s)
 
+if [ $mycase -ge 1 ] && [ $mycase -le 4 ]; then
+    {
+        python "$scriptdir/generate_authlatex.py" authlist.csv
+    } && {
+        echo "SUCCESS: authorlist outputted to authlist.tex"
+    } || {
+        echo "Failed to generate authorlist. Make sure authlist.csv exists and is correctly formatted." >&2
+    }
+fi
+
+
 if [ $mycase -eq 1 ] ; then
-    pdflatex -interaction=nonstopmode $filename.tex
+    pdflatex -interaction=nonstopmode -recorder $filename.tex
     bibtex $filename.aux    
     makeindex $filename.aux
     makeindex $filename.idx

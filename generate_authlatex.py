@@ -47,7 +47,7 @@ if not os.path.isfile(inpcsvfile):
 authfile = workdir+'authlist.tex'
 instfile = workdir+'instlist.tex'
 ackfile = workdir+'acklist.tex'
-authemail = 'soumyadeep.das.m44@gmail.com'
+authemail = 's.das4@herts.ac.uk'
 linelim = 112 # how many characters can be in one line before it goes to a new line
 doseparate = False
 doinitials = False
@@ -64,6 +64,7 @@ with open(inpcsvfile) as csvfile:
     for row in tt:
         autharr = row[0].split(',')
         aname = autharr[1].strip()+' '+autharr[0].strip() if len(autharr) == 2 else row[0].strip()
+        if aname[0] == "#": continue
         if doinitials:
             autharr = aname.split(' ')
             aname = ''
