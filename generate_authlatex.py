@@ -76,7 +76,7 @@ with open(inpcsvfile) as csvfile:
         instis.append(row[1].strip())
         acknos.append(row[2].strip())
         
-authors, instis, acknos  = np.array(authors[1:]), np.array(instis[1:]), np.array(acknos[1:])    
+authors, instis, acknos  = np.array(authors), np.array(instis), np.array(acknos)    
 
 # ==================================== #
 #       H A N D L E  A F F I L         #
